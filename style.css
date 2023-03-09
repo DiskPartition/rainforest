@@ -7,8 +7,7 @@ body {
   /* Set the height, width, background color, and margin of the header element */
   .header {
     height: 10%;
-    width: 100%;
-    min-width: 100%;
+    width: auto;
     background-color: black;
     margin: 0;
     box-sizing: border-box;
@@ -17,13 +16,13 @@ body {
   
   /* Set the width, height, margin, and position of the logo image */
   .header img {
-    width: auto;
-    height: 120%;
+    width: 10%;
+    height: auto;
     margin: auto; /* Removed this as it is not needed for absolute positioning */
-    position: absolute; /* Changed this from relative */
-    top: 20%; 
+    position: relative; /* Changed this from relative */
     left: 50%; /* Added this to center horizontally */
-    transform:translate(-50%, -30%); /* Changed this from translateY(-50%) to center both vertically and horizontally */
+    top: 10%; 
+    transform:translate(-50%, 0%); /* Changed this from translateY(-50%) to center both vertically and horizontally */
   }
 
   /* Create a green gradient line below the header element using a pseudo-element */
@@ -40,19 +39,23 @@ body {
 
   }
 
-    .podcastCover {
+    .container {
+      display: flex;
       align-items: center;
-      background:white;
-      transform:translate(20%,20%);
+      justify-content: center;
+    }
+    .podcastCover {
+      background: white;
+      transform:translate(20%, 20%);
       width: 12%;
+      height: auto;
       outline: rgb(0, 0, 0) solid;
       outline-width: 0.4vw;
     }
     .podcastTitle {
-      left: 3%;
-      transform: translate(0%, 599999%);
-      position: relative;
+      transform:translate(20%,80%);
+      position: absolute;
       color:black;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-      font-size: xx-large;
+      font-family: arial;
+      font-size: 2vw;
     }
