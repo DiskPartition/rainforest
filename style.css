@@ -56,6 +56,16 @@ body {
       transform:translate(20%,80%);
       position: absolute;
       color:black;
+      font-style: bold;
       font-family: arial;
       font-size: 2vw;
     }
+
+  .podcastSubtitle {
+    transform:translate(99%,-800%);
+    position: absolute;
+    color:rgb(0, 0, 0);
+    font-family: arial;
+    font-style: italic;
+    font-size: 1vw;
+  }
