@@ -3,7 +3,11 @@ body {
     background-color: #bebebe;
     margin: 0; padding: 0;
     }
-  
+
+img {
+  max-width: 100%;
+  display: block;
+}
   /* Set the height, width, background color, and margin of the header element */
   .header {
     height: 10%;
