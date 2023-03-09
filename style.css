@@ -1,0 +1,45 @@
+/* Set the background color of the body element to light gray */
+body {
+    background-color: #bebebe;
+    margin: 0; padding: 0;
+    }
+  
+  /* Set the height, width, background color, and margin of the header element */
+  .header {
+    height: 10%;
+    width: 100%;
+    background-color: black;
+    margin: 0;
+    box-sizing: border-box;
+    position: relative; /* Added this to make absolute positioning work for children */
+  }
+  
+  /* Set the width, height, margin, and position of the logo image */
+  .header img {
+    width: 15%;
+    height: auto;
+    margin: auto; /* Removed this as it is not needed for absolute positioning */
+    position: absolute; /* Changed this from relative */
+    top: 50%; /* Changed this from calc(50% - (40px)) */
+    left :50%; /* Added this to center horizontally */
+    transform :translate(-50%, -30%); /* Changed this from translateY(-50%) to center both vertically and horizontally */
+  }
+  
+  /* Move the logo image down by half of its height (40px) */
+  .header img {
+   top: calc(50% - (40px));
+  }
+  
+  /* Create a green gradient line below the header element using a pseudo-element */
+  .header::after {
+     box-shadow: 0 0 10px 5px rgba(50, 205, 50, 0.6);
+     content: "";
+     display: block;
+     height: 5px;
+     width: 100%;
+     background-image: linear-gradient(to left, limegreen , rgb(219, 255, 18)); /* Change this to adjust
+  the gradient colors */
+    position:absolute; /* Added this to position at bottom */
+    bottom :0; /* Added this to align with bottom edge */
+
+  }
