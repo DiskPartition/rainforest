@@ -1,1 +1,0 @@
-![Rainforest Logo](assets/images/rainforestwhite.png)
