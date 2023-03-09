@@ -49,10 +49,9 @@ body {
       outline-width: 0.4vw;
     }
     .podcastTitle {
-      transform:translate(20%,-20%);
-      align-self:flex-start;
-      top: 0;
-      right: 0;
+      left: 3%;
+      transform: translate(0%, 599999%);
+      position: relative;
       color:black;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
       font-size: xx-large;
