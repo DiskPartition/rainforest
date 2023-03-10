@@ -159,4 +159,53 @@ html, body {
     padding: 1vw;
     justify-content: left;
     align-items: flex-start;
+    font-family: Arial;
+  }
+
+  .collapsible {
+    background-color: #000000;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    text-align:left;
+    vertical-align:bottom;
+    line-height: 2vw;
+    outline: none;
+    font-size: 15px;
+    border-radius: 0.2vw;
+  }
+
+  .active, .collapsible:hover {
+    background-color: green;
+  }
+
+  .collapsible::after {
+      content: '+'; 
+      font-size: 2vw;
+      color: white;
+      float: right;
+      text-align:center;
+      line-height: 2vw;
+      margin-left: 0.1vw;
+  }
+
+  .active:after {
+    content: '-'; 
+    font-size: 2vw;
+    color: white;
+    float: right;
+    text-align:center;
+    line-height: 1.8vw;
+    margin-left: 0.1vw;
+  }
+
+  .transcript {
+    padding: 0 18px;
+    background-color: navy;
+    color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
   }
