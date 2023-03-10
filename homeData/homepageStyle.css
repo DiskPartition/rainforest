@@ -18,7 +18,7 @@ html, body {
 }
 
 .slogan {
-  top: 55%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   position: absolute;
@@ -28,7 +28,7 @@ html, body {
   -webkit-text-fill-color: transparent;
   font-family: arial;
   text-shadow: rgb(51, 255, 0) -0.08vw -0.08vw 0.2vw;
-  font-size: 0.8vw;
+  font-size: 1.2vw;
   font-style: italic;
   background-color: rgb(255, 255, 255);
   outline: solid rgb(0, 255, 42) 0.1vw;
@@ -37,7 +37,7 @@ html, body {
 }
 
 .featured {
-  top: 62%;
+  top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
   position: absolute;
