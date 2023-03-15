@@ -1,6 +1,8 @@
 /* Set the background color of the body element to light gray */
 html, body {
-    background-color:darkgrey;
+    background-image: linear-gradient( 180deg, rgb(168, 221, 166) 26.8%, rgba(192,229,246,1) 64% );
+    background-repeat: no-repeat;
+    background-size: 100% 200%;
     margin: 0; padding: 0;
     }
 
@@ -178,7 +180,7 @@ html, body {
   }
 
   .active, .collapsible:hover {
-    background-color: green;
+    background-color: gray;
   }
 
   .collapsible::after {
@@ -203,9 +205,17 @@ html, body {
 
   .transcript {
     padding: 0 18px;
-    background-color: navy;
-    color: white;
+    border-radius: 1vw;
+    background-image: linear-gradient( 0deg, rgb(175, 175, 175) 26.8%, rgb(206, 206, 206) 64% );
+    color: a;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
+  }
+
+  .lh {
+    color:rgb(31, 78, 31);
+  }
+  .jl {
+    color:rgb(25, 60, 83);
   }
