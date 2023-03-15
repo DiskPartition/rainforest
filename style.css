@@ -104,8 +104,8 @@ html, body {
       outline-width: 0.4vw;
     }
     .podcastTitle {
-      top:9vw;
-      left:24.5vw;
+      top:16vh;
+      left:23.5vw;
       position: absolute;
       color:black;
       font-style: bold;
@@ -116,8 +116,8 @@ html, body {
   .podcastSubtitle {
     text-align: left;
     position: absolute;
-    left: 24.5vw;
-    top: 10.5vw;
+    left: 23.5vw;
+    top: 19vh;
     color:black;
     font-family: arial;
     font-style: italic;
