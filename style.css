@@ -207,7 +207,7 @@ html, body {
     border-radius: 1vw;
     background-image: linear-gradient( 0deg, rgb(175, 175, 175) 26.8%, rgb(206, 206, 206) 64% );
     max-height: 0;
-    overflow: scroll;
+    overflow:auto;
     transition: max-height 0.2s ease-out;
   }
 
