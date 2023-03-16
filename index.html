@@ -1,296 +1,87 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html> 
+<html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="noindex, nofollow">
     <title>Rainforest Audio</title>
-    <style>
-        html, body {
-            margin: 0;
-            width: 100%;
-            height: 100%;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        #dialogText {
-            color: white;
-            background-color: #333333;
-        }
-        
-        #dialogWrap {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: table;
-            background-color: #EEEEEE;
-        }
-        
-        #dialogWrapCell {
-            display: table-cell;
-            text-align: center;
-            vertical-align: middle;
-        }
-        
-        #mainDialog {
-            max-width: 400px;
-            margin: 5px;
-            border: solid #AAAAAA 1px;
-            border-radius: 10px;
-            box-shadow: 3px 3px 5px 3px #AAAAAA;
-            margin-left: auto;
-            margin-right: auto;
-            background-color: #FFFFFF;
-            overflow: hidden;
-            text-align: left;
-        }
-        #mainDialog > * {
-            padding: 10px 30px;
-        }
-        #passArea {
-            padding: 20px 30px;
-            background-color: white;
-        }
-        #passArea > * {
-            margin: 5px auto;
-        }
-        #pass {
-            width: 100%;
-            height: 40px;
-            font-size: 30px;
-        }
-        
-        #messageWrapper {
-            float: left;
-            vertical-align: middle;
-            line-height: 30px;
-        }
-        
-        .notifyText {
-            display: none;
-        }
-        
-        #invalidPass {
-            color: red;
-        }
-        
-        #success {
-            color: green;
-        }
-        
-        #submitPass {
-            font-size: 20px;
-            border-radius: 5px;
-            background-color: #E7E7E7;
-            border: solid gray 1px;
-            float: right;
-            cursor: pointer;
-        }
-        #contentFrame {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        #attribution {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            text-align: center;
-            padding: 10px;
-            font-weight: bold;
-            font-size: 0.8em;
-        }
-        #attribution, #attribution a {
-            color: #999;
-        }
-        .error {
-            display: none;
-            color: red;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css"> <!-- Link to the CSS file -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="assets/images/rainforestwhiteFAVICON.ico">
   </head>
   <body>
-    <iframe id="contentFrame" frameBorder="0" allowfullscreen></iframe>
-    <div id="dialogWrap">
-        <div id="dialogWrapCell">
-            <div id="mainDialog">
-                <div id="dialogText">This page is password protected.</div>
-                <div id="passArea">
-                    <p id="passwordPrompt">Password</p>
-                    <input id="pass" type="password" name="pass" autofocus>
-                    <div>
-                        <span id="messageWrapper">
-                            <span id="invalidPass" class="error">Sorry, please try again.</span>
-                            <span id="trycatcherror" class="error">Sorry, something went wrong.</span>
-                            <span id="success" class="notifyText">Success!</span>
-                            &nbsp;
-                        </span>
-                        <button id="submitPass" type="button">Submit</button>
-                        <div style="clear: both;"></div>
-                    </div>
-                </div>
-                <div id="securecontext" class="error">
-                    <p>
-                        Sorry, but password protection only works over a secure connection. Please load this page via HTTPS.
-                    </p>
-                </div>
-                <div id="nocrypto" class="error">
-                    <p>
-                        Your web browser appears to be outdated. Please visit this page using a modern browser.
-                    </p>
-                </div>
-            </div>
-        </div>
+    <div class="header">
+      <a href="homeData/index.html" class="buttonHomepage">Home</a>
+      <img src="assets/images/Rainforestcolor.png" alt="Rainforest logo"/>
+      <a href="https://www.youtube.com/watch?v=Tt7bzxurJ1I" class="buttonSignin">Sign In</a>
+      <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="buttonSignup">Sign Up</a>
     </div>
-    <script>
-    (function() {
 
-        var pl = "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";
-        
-        var submitPass = document.getElementById('submitPass');
-        var passEl = document.getElementById('pass');
-        var invalidPassEl = document.getElementById('invalidPass');
-        var trycatcherror = document.getElementById('trycatcherror');
-        var successEl = document.getElementById('success');
-        var contentFrame = document.getElementById('contentFrame');
-        
-        // Sanity checks
+    
 
-        if (pl === "") {
-            submitPass.disabled = true;
-            passEl.disabled = true;
-            alert("This page is meant to be used with the encryption tool. It doesn't work standalone.");
-            return;
-        }
+    <div class="row">
+      <div class="column">
+        <img class="podcastCover" src="assets/images/gssCover.png" alt="Golden State Stories"></img>
+        <b class="podcastTitle">Golden State Stories</b>
+        <p class="podcastSubtitle">Episode 29: The Foreign Experience</p>
 
-        if (!isSecureContext) {
-            document.querySelector("#passArea").style.display = "none";
-            document.querySelector("#securecontext").style.display = "block";
-            return;
-        }
+        <div class="empty" style="height: 4vw;"></div>
 
-        if (!crypto.subtle) {
-            document.querySelector("#passArea").style.display = "none";
-            document.querySelector("#nocrypto").style.display = "block";
-            return;
-        }
-        
-        function str2ab(str) {
-            var ustr = atob(str);
-            var buf = new ArrayBuffer(ustr.length);
-            var bufView = new Uint8Array(buf);
-            for (var i=0, strLen=ustr.length; i < strLen; i++) {
-                bufView[i] = ustr.charCodeAt(i);
-            }
-            return bufView;
-        }
+        <div>
+          <h1 class="sectionTitle">Description</h1>
+    
+          <hr style="width: 48%; transform: translate(2%);" color="black" align="left">
+    
+          <p class="podcastDescription">In this episode of Golden State Stories, host Leon Henderson interviews 
+            Chinese immigrant Ji Lang about his experiences. The interview begins with his early life, then covers his journey and mining experience. Finally, it concludes with his life today.
+          </p>
+           <iframe width="100%" allowfullscreen="allowfullscreen" src="https://www.youtube.com/embed/2BZGjycR7YM" style="height: 48vh; border: none;"></iframe>
+        </div>
+      </div>
 
-        async function deriveKey(salt, password) {
-            const encoder = new TextEncoder()
-            const baseKey = await crypto.subtle.importKey(
-                'raw',
-                encoder.encode(password),
-                'PBKDF2',
-                false,
-                ['deriveKey'],
-            )
-            return await crypto.subtle.deriveKey(
-                { name: 'PBKDF2', salt, iterations: 100000, hash: 'SHA-256' },
-                baseKey,
-                { name: 'AES-GCM', length: 256 },
-                true,
-                ['decrypt'],
-            )
-        }
-        
-        async function doSubmit(evt) {
-            submitPass.disabled = true;
-            passEl.disabled = true;
+      <div class="column">
+        <div class="empty" style="height: 2vw;"></div>
+        <h1 class="sectionTitle">Full Text Transcript</h1>
+        <hr color="black" style="width:98%; transform: translate(1%, 0%);" align="left">
+        <button type="button" class="collapsible">Open Transcript</button>
+        <div class="transcript">
+          <p class="lh">Leon Henderson: Hey listeners, it’s me, Leon Henderson! Welcome back to Golden State Stories, here in San Francisco. Before we start, remember that you can listen ad free on Rainforest Audio. Today we have some quite deep stories from a man who has lots of experience with the gold rush of 1849. Would you like to introduce yourself?</p>
+          <p class="jl">Ji Lang: Yes, so my name is Ji Lang, and I grew up in a poor family in China and I started as a grain field worker when I was just 9 years old. And when I was just 15 years old, my father… sadly he passed away, so yeah, I was working like I did every day in the fields, with the sun beating down on me, it was, you know, hard work, but a man excitedly came dashing through my field and started screaming that, there was … someone had returned from America and that they were hosting a party and he wanted all of us to attend it. So when I walked into his lavish home to attend the feast, like I instantly smelled the delightful aromas of like, you know, the pigs and chicken that were there. And I heard, the you know, a bunch of people, you know, happily talking, and, you know, it was, it was great. The man explained to us that he gained his immense riches in the country of America, and everyone was enthralled and I instantly decided that I would make the journey there to get rich. He also explained that the leader of the nation, President Polk, made a formal announcement of the presence of gold, and that it was free for anyone who could make the journey to take it. </p>
+          <p class="lh">Leon Henderson: And is it true that at the time, some of the Chinese called the Americans wizards?</p>
+          <p class="jl">Ji Lang: Yea, he said American wizards.</p>
+          <p class="lh">Leon Henderson: So I can see why you were so interested in that prospect of going there. For you, how was that journey across the Pacific?</p>
+          <p class="jl">Ji Lang: Okay, so the first step of my journey was going to Hong Kong, and I boarded a grimy, it was like completely, very cramped ship, filled with a bunch of people also going to America for gold. And, I like, when I looked outside I could see hundreds of other boats, presumably holding the same amount of people trying to go there. And I actually learned later that there was like 20,000 people going to America for this dream of gold. So the journey was quite long, but we did get to California a few weeks later, and when we arrived there, when we got off the boat, everyone was like, thrilled to see California.</p>
+          <p class="lh">Leon Henderson: Personally for you, what were you feeling when you arrived?</p>
+          <p class="jl">Ji Lang: So once we docked, I saw like, a stampede of passengers, just like, rushing off the boat, and you know, I saw a bunch of other ships, presumably holding the same amount of people. And every claim of land, like everything I saw, it was just shops everywhere, and these shops were just probably trying to make a quick profit off of the rush of people. You know I saw like thousands of young men just rushing through the streets, all carrying their equipment. And I was just like, amazed by how, like, how developed and full the land of America was, it was very fast-paced and exciting. It was like a full-on city. I could smell the scents of the food, and the tools, and the men, and I could even taste the brisk air. There [were] thousands of people screaming in joy, and I didn’t know exactly for what yet, but I thought it was for guaranteed riches</p>
+          <p class="lh">Leon Henderson: So, would you later learn that some of those people were crying out of despair for failing to find gold?</p>
+          <p class="jl">Ji Lang: No, at the time I thought it was just, they were all excited, but you know, now I’ve learned it was actually because they were very [sad about failing.]</p>
+          <p class="lh">Leon Henderson: What was your experience with mining like?</p>
+          <p class="jl">Ji Lang: Yeah, so I quickly ended up in Coloma, and I saw the landscape, and it reminded me of home a little bit, and I decided that would be the place where I’d start mining. Yeah, so I started mining 12 hour workdays, it was a lot of [tedious] work, on both cloudy days and sunny days, just very very difficult work, but no luck, no gold, I did not find any gold, or found a very little amount of gold. I learned in time that it was more luck than skill that was required for finding gold, although I did see hundreds of people, just lining up on the riverbank, all mining. The only sounds I could hear while mining were the sounds of the river rushing down, the batea pans, the shaking of the batea pans, and I could also hear a bunch of people yelling and arguing over the gold.</p>
+          <p class="lh">Leon Henderson: And at what point did you stop mining, like did you realize that this was kind of a futile endeavor?</p>
+          <p class="jl">Ji Lang: Yeah, so I quit about 7 months of working. I did that because I realized that this was just, kind of, it was not giving me any money, I did not find much gold at all. And it was also the mistreatment, actually, mostly, that caused me to quit though. As the supply of the gold diminished, the American miners didn’t really take kindly to my presence as I was a foreigner, so they believed that I was an intruder and I was like, stealing the gold. Even after I paid the foreigner’s tax, they put a tax on foreigners mining, they still mistreated me. One day I was just hunched over in a river, and I saw a big man approaching. So abruptly, the man grabbed my arms, and then he cut my hair with his knife, and then he just whispered to me, telling me to leave, and then he walked away. It was then that I decided to leave, and that's because our queues, you know, the hair, are customs that live with us our whole lives. You know, I just decided to leave, and I grabbed my belongings and just stormed out. So, once I got away from the river, I considered an idea that I didn’t really consider again since I arrived, and that’s opening a business in California. And, when I went to Sacramento, I noticed a lack of Chinese food that I used to enjoy at home. So I decided to use what I had left to start a restaurant.</p>
+          <p class="lh">Leon Henderson: I know that many Chinese immigrants chose to start businesses in the states. How well did it go for you?</p>
+          <p class="jl">Ji Lang: So I knew that it [could] work, but I didn’t see how well it would work. So, the day after I opened, the restaurant was full of hungry miners, and I was just in the kitchen when I heard a customer yelling for my attention.  I expected him to be mad about, you know, my race’s presence, because I'm Chinese, but instead he thanked me, and told me that our culture had some of the best food around. So I became wealthy pretty quickly and I continue to serve the settlers and the workers for the Transcontinental Railroad, and that leads up to today actually, I still work in the restaurant, and I have achieved my dreams of wealth. And despite the racism that I have experienced, I will say that the Californians have been very generous to me, and others in China [as well]. </p>
+          <p class="lh">Leon Henderson: Is there anything else you’d like to add?</p>
+          <p class="jl">Ji Lang: I suppose, if anything, I just want to remind people to be kind to others, and to remember that the American Dream is a concept that everyone can dedicate themselves to and achieve.</p>
+          <p class="lh">Leon Henderson: Over 250,000 miners came during the gold rush, and many remain today. Around 10% of them were Chinese, and they define our state. Now iconic cities like San Francisco would increase in population by multiples of ten over a decade. Their contributions to our nation are immense and cannot be ignored. We would be fools to reject their rich culture and everything that they’ve brought.</p>
+        </div> 
 
-            let iv, ciphertext, key;
-            
-            try {
-                var unencodedPl = str2ab(pl);
+      <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+        for (i = 0; i < coll.length; i++) {
+          coll[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var content = this.nextElementSibling;
+          if (content.style.maxHeight){
+            content.style.maxHeight = null;
+          }
+          else {
+           content.style.maxHeight = content.scrollHeight + "px";
+          }
+          });
+  }
+  </script>  
 
-                const salt = unencodedPl.slice(0, 32)
-                iv = unencodedPl.slice(32, 32 + 16)
-                ciphertext = unencodedPl.slice(32 + 16)
-
-                key = await deriveKey(salt, passEl.value);
-            } catch (e) {
-                trycatcherror.style.display = "inline";
-                console.error(e);
-                return;
-            }
-
-            try {
-                const decryptedArray = new Uint8Array(
-                    await crypto.subtle.decrypt({ name: 'AES-GCM', iv }, key, ciphertext)
-                );
-
-                let decrypted = new TextDecoder().decode(decryptedArray);
-
-                if (decrypted === "") throw "No data returned";
-
-                const basestr = '<base href="." target="_top">';
-                const anchorfixstr = `
-                    <script>
-                        Array.from(document.links).forEach((anchor) => {
-                            const href = anchor.getAttribute("href");
-                            if (href.startsWith("#")) {
-                                anchor.addEventListener("click", function(e) {
-                                    e.preventDefault();
-                                    const targetId = this.getAttribute("href").substring(1);
-                                    const targetEl = document.getElementById(targetId);
-                                    targetEl.scrollIntoView();
-                                });
-                            }
-                        });
-                    <\/script>
-                `;
-                
-                // Set default iframe link targets to _top so all links break out of the iframe
-                if (decrypted.includes("<head>")) decrypted = decrypted.replace("<head>", "<head>" + basestr);
-                else if (decrypted.includes("<!DOCTYPE html>")) decrypted = decrypted.replace("<!DOCTYPE html>", "<!DOCTYPE html>" + basestr);
-                else decrypted = basestr + decrypted;
-
-                // Fix fragment links
-                if (decrypted.includes("</body>")) decrypted = decrypted.replace("</body>", anchorfixstr + '</body>');
-                else if (decrypted.includes("</html>")) decrypted = decrypted.replace("</html>", anchorfixstr + '</html>');
-                else decrypted = decrypted + anchorfixstr;
-                
-                contentFrame.srcdoc = decrypted;
-                
-                successEl.style.display = "inline";
-                setTimeout(function() {
-                    dialogWrap.style.display = "none";
-                }, 1000);
-            } catch (e) {
-                invalidPassEl.style.display = "inline";
-                passEl.value = "";
-                submitPass.disabled = false;
-                passEl.disabled = false;
-                console.error(e);
-                return;
-            }
-        }
-        
-        submitPass.onclick = doSubmit;
-        passEl.onkeypress = function(e){
-            if (!e) e = window.event;
-            var keyCode = e.keyCode || e.which;
-            invalidPassEl.style.display = "none";
-            if (keyCode == '13'){
-              // Enter pressed
-              doSubmit();
-              return false;
-            }
-        }
-    })();
-    </script>
+      </div>
+      
+    </div>
   </body>
 </html>
